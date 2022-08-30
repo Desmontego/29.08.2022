@@ -1,23 +1,56 @@
-﻿// Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+﻿//  Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
 
-// a = 5; b = 7 -> max = 7
-// a = 2 b = 10 -> max = 10
-// a = -9 b = -3 -> max = -3
+// 2, 3, 7 -> 7
+// 44 5 78 -> 78
+// 22 3 9 -> 22
 
-int Prompt(string message)
+internal class Programs
 {
-    Console.Write(message);
-    string strValue = Console.ReadLine ()  ?? "0";
-    int value = int.Parse(strValue);
-    return value;
-}
-int firstValue = Prompt("Введите певрое число > ");
-int secondValue = Prompt("Введите второе число > ");
-if (firstValue > secondValue)
-{
-     System.Console.WriteLine( firstValue);
-}
-else
-{
-    System.Console.WriteLine(secondValue);
+    private static void Main(string[] args)
+    {
+        int Prompt(string message)
+        {
+            Console.Write(message);
+            string strValue = Console.ReadLine() ?? "0";
+            int value = int.Parse(strValue);
+            return value;
+        }
+
+        int firstValue = Prompt("Введите первое число ->");
+        int secondValue = Prompt("Введите второе число ->");
+        int thirdValue = Prompt("Введите третье число ->");
+        int Max = firstValue;
+        if (firstValue < secondValue) 
+        {
+            Max=secondValue;
+        }    
+        else
+        {
+            Max=firstValue;
+        }
+        if (secondValue < thirdValue) 
+        {
+            Max = thirdValue;
+        }    
+        else
+        {
+            Max=secondValue;
+        }
+        Console.WriteLine(Max);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public override string? ToString()
+    {
+        return base.ToString();
+    }
 }
